@@ -33,13 +33,11 @@ class MainTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
-        content.text = restourantNames[indexPath.row]
-        content.image = UIImage(named: restourantNames[indexPath.row])
-        content.imageProperties.cornerRadius = cell.frame.size.height / 2
-        cell.contentConfiguration = content
+        cell.nameLabel.text = restourantNames[indexPath.row]
+        cell.imageOfPlace.image = UIImage(named: restourantNames[indexPath.row])
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
 
         return cell
     }
