@@ -8,7 +8,17 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
+    
+    // MARK: - Private properties
+    
+    private let restourantNames = ["Burger Heroes", "Kitchen", "Bonsai",
+                                   "Дастархан", "Индокитай", "X.O",
+                                   "Балкан Гриль", "Sherlock Holmes",
+                                   "Speak Easy", "Morris Pub", "Вкусные истории",
+                                   "Классик", "Love&Life", "Шок", "Бочка"]
 
+    // MARK: - Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +26,9 @@ class MainTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return restourantNames.count
     }
 
     
@@ -31,18 +36,16 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         
-        content.text = "ячейка \(indexPath.row)"
-
-        
+        content.text = restourantNames[indexPath.row]
+        content.image = UIImage(named: restourantNames[indexPath.row])
         cell.contentConfiguration = content
 
         return cell
     }
-    
-
-  
-
-
+ 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
     /*
     // MARK: - Navigation
 
