@@ -9,43 +9,35 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    // MARK: - Private properties
+    // MARK: - Public properties
     
-    private let restourantNames = ["Burger Heroes", "Kitchen", "Bonsai",
-                                   "Дастархан", "Индокитай", "X.O",
-                                   "Балкан Гриль", "Sherlock Holmes",
-                                   "Speak Easy", "Morris Pub", "Вкусные истории",
-                                   "Классик", "Love&Life", "Шок", "Бочка"]
+    let places = Place.getPlaces()
 
     // MARK: - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restourantNames.count
+        return places.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
-        cell.nameLabel.text = restourantNames[indexPath.row]
-        cell.imageOfPlace.image = UIImage(named: restourantNames[indexPath.row])
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
+        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
 
         return cell
     }
- 
-    // MARK: - Table view delegate
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        85
-    }
+
     /*
     // MARK: - Navigation
 
