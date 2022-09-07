@@ -11,7 +11,6 @@ class NewPlaceViewController: UITableViewController {
     
     // MARK: - Public properties
     
-    var newPlace = Place()
     var imageIsChanged = false
     
     // MARK: - IBOutlets
@@ -27,12 +26,7 @@ class NewPlaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            self.newPlace.savePlaces()
-        }
-        
         saveButton.isEnabled = false
-        
         placeNameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
     }
@@ -94,13 +88,17 @@ class NewPlaceViewController: UITableViewController {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-//        newPlace = Place(name: placeNameTF.text ?? "",
-//                         location: placeLocationTF.text,
-//                         type: placeTypeTF.text,
-//                         image: image,
-//                         restaurantImage: nil)
+        let imageData = image?.pngData()
+        
+        let newPlace = Place(name: placeNameTF.text ?? "",
+                             location: placeLocationTF.text,
+                             type: placeTypeTF.text,
+                             imageData: imageData)
+        
+        StorageManager.saveObject(newPlace)
     }
 }
+
 
 // MARK: - Text field delegate
 
