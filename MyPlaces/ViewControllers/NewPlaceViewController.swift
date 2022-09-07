@@ -11,7 +11,7 @@ class NewPlaceViewController: UITableViewController {
     
     // MARK: - Public properties
     
-    var newPlace: Place?
+    var newPlace = Place()
     var imageIsChanged = false
     
     // MARK: - IBOutlets
@@ -27,10 +27,14 @@ class NewPlaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            self.newPlace.savePlaces()
+        }
+        
         saveButton.isEnabled = false
         
         placeNameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-
+        
     }
     
     // MARK: - Table view delegate
@@ -90,11 +94,11 @@ class NewPlaceViewController: UITableViewController {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-        newPlace = Place(name: placeNameTF.text ?? "",
-                         location: placeLocationTF.text,
-                         type: placeTypeTF.text,
-                         image: image,
-                         restaurantImage: nil)
+//        newPlace = Place(name: placeNameTF.text ?? "",
+//                         location: placeLocationTF.text,
+//                         type: placeTypeTF.text,
+//                         image: image,
+//                         restaurantImage: nil)
     }
 }
 
@@ -108,12 +112,12 @@ extension NewPlaceViewController: UITextFieldDelegate {
         return true
     }
     
-   @objc private func textFieldChanged() {
-       if placeNameTF.text?.isEmpty == false {
-           saveButton.isEnabled = true
-       } else {
-           saveButton.isEnabled = false
-       }
+    @objc private func textFieldChanged() {
+        if placeNameTF.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
     }
 }
 
@@ -127,7 +131,7 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
-            present(imagePicker, animated: true) 
+            present(imagePicker, animated: true)
         }
     }
     
