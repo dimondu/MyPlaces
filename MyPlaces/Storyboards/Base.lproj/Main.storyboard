@@ -87,6 +87,9 @@
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="zyM-t4-IAS" eventType="valueChanged" id="QJO-bm-ACn"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ae0-cC-ivW"/>
@@ -103,7 +106,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="fcB-iI-Aw6">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="Pdl-Qv-QF3">
-                            <color key="tintColor" red="0.089759893715381622" green="0.52812778949737549" blue="0.68879210948944092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="tintColor"/>
+                            <connections>
+                                <action selector="reversedSorting:" destination="zyM-t4-IAS" id="zkB-8i-ZpQ"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XGc-Hg-4cZ">
                             <connections>
@@ -112,6 +118,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reversedSortingButton" destination="Pdl-Qv-QF3" id="WeL-ot-wNb"/>
+                        <outlet property="segmentedControl" destination="b8h-Me-PHn" id="t96-j4-xI6"/>
                         <outlet property="tableView" destination="70s-ao-qPx" id="hGP-cB-H9R"/>
                     </connections>
                 </viewController>
@@ -340,6 +348,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
