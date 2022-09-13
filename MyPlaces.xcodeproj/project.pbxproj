@@ -16,9 +16,9 @@
 		F44C0A7928C50AE200F34EFA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C0A7828C50AE200F34EFA /* CustomTableViewCell.swift */; };
 		F44C0A7C28C512E900F34EFA /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C0A7B28C512E900F34EFA /* PlaceModel.swift */; };
 		F4D2702628C8D44A003EC1A6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2702528C8D44A003EC1A6 /* StorageManager.swift */; };
+		F4E1D98328D0E99200DFD1D0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F4E1D98228D0E99200DFD1D0 /* Realm */; };
+		F4E1D98528D0E99500DFD1D0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E1D98428D0E99500DFD1D0 /* RealmSwift */; };
 		F4FCE24828C76AC900BFE72E /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FCE24728C76AC900BFE72E /* NewPlaceViewController.swift */; };
-		F4FCE24B28C7CAAA00BFE72E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F4FCE24A28C7CAAA00BFE72E /* Realm */; };
-		F4FCE24D28C7CAAA00BFE72E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4FCE24C28C7CAAA00BFE72E /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FCE24D28C7CAAA00BFE72E /* RealmSwift in Frameworks */,
-				F4FCE24B28C7CAAA00BFE72E /* Realm in Frameworks */,
+				F4E1D98528D0E99500DFD1D0 /* RealmSwift in Frameworks */,
+				F4E1D98328D0E99200DFD1D0 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +54,7 @@
 			children = (
 				F44C0A5C28C39F8600F34EFA /* MyPlaces */,
 				F44C0A5B28C39F8600F34EFA /* Products */,
+				F4E1D98128D0E99200DFD1D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +140,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F4E1D98128D0E99200DFD1D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,8 +164,8 @@
 			);
 			name = MyPlaces;
 			packageProductDependencies = (
-				F4FCE24A28C7CAAA00BFE72E /* Realm */,
-				F4FCE24C28C7CAAA00BFE72E /* RealmSwift */,
+				F4E1D98228D0E99200DFD1D0 /* Realm */,
+				F4E1D98428D0E99500DFD1D0 /* RealmSwift */,
 			);
 			productName = MyPlaces;
 			productReference = F44C0A5A28C39F8600F34EFA /* MyPlaces.app */;
@@ -456,12 +464,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F4FCE24A28C7CAAA00BFE72E /* Realm */ = {
+		F4E1D98228D0E99200DFD1D0 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4FCE24928C7CAAA00BFE72E /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		F4FCE24C28C7CAAA00BFE72E /* RealmSwift */ = {
+		F4E1D98428D0E99500DFD1D0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4FCE24928C7CAAA00BFE72E /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
