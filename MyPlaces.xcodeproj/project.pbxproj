@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4447B7F28D4EF1300CA5A00 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4447B7E28D4EF1200CA5A00 /* RatingControl.swift */; };
 		F44C0A5E28C39F8600F34EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C0A5D28C39F8600F34EFA /* AppDelegate.swift */; };
 		F44C0A6028C39F8600F34EFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C0A5F28C39F8600F34EFA /* SceneDelegate.swift */; };
 		F44C0A6528C39F8600F34EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44C0A6328C39F8600F34EFA /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4447B7E28D4EF1200CA5A00 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		F44C0A5A28C39F8600F34EFA /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44C0A5D28C39F8600F34EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F44C0A5F28C39F8600F34EFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				F44C0A7528C3A05B00F34EFA /* MainViewController.swift */,
 				F4FCE24728C76AC900BFE72E /* NewPlaceViewController.swift */,
+				F4447B7E28D4EF1200CA5A00 /* RatingControl.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				F4FCE24828C76AC900BFE72E /* NewPlaceViewController.swift in Sources */,
 				F44C0A7628C3A05B00F34EFA /* MainViewController.swift in Sources */,
 				F4D2702628C8D44A003EC1A6 /* StorageManager.swift in Sources */,
+				F4447B7F28D4EF1300CA5A00 /* RatingControl.swift in Sources */,
 				F44C0A7C28C512E900F34EFA /* PlaceModel.swift in Sources */,
 				F44C0A7928C50AE200F34EFA /* CustomTableViewCell.swift in Sources */,
 				F44C0A6028C39F8600F34EFA /* SceneDelegate.swift in Sources */,
