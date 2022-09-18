@@ -11,7 +11,7 @@ class NewPlaceViewController: UITableViewController {
     
     // MARK: - Public properties
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChanged = false
     
     // MARK: - IBOutlets
@@ -22,6 +22,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeLocationTF: UITextField!
     @IBOutlet weak var placeTypeTF: UITextField!
     
+    @IBOutlet weak var ratingControl: RatingControl!
     // MARK: - Override methods
     
     override func viewDidLoad() {
@@ -98,7 +99,8 @@ class NewPlaceViewController: UITableViewController {
         let newPlace = Place(name: placeNameTF.text ?? "",
                              location: placeLocationTF.text,
                              type: placeTypeTF.text,
-                             imageData: imageData)
+                             imageData: imageData,
+                             rating: Double(ratingControl.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -106,11 +108,11 @@ class NewPlaceViewController: UITableViewController {
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
         }
-        
     }
     
     private func setupEditScreen() {
@@ -126,6 +128,7 @@ class NewPlaceViewController: UITableViewController {
             placeNameTF.text = currentPlace?.name
             placeLocationTF.text = currentPlace?.location
             placeTypeTF.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
         }
     }
     
@@ -139,7 +142,6 @@ class NewPlaceViewController: UITableViewController {
         saveButton.isEnabled = true
     }
 }
-
 
 // MARK: - Text field delegate
 
