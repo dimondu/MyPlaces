@@ -6,7 +6,7 @@
 //
 
 import RealmSwift
-import UIKit
+import Foundation
 
 class Place: Object {
     

@@ -370,6 +370,9 @@
                             <constraint firstItem="E4v-Hx-Yf2" firstAttribute="top" secondItem="1AD-BG-ENs" secondAttribute="top" constant="40" id="sAV-mB-eFO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="rT5-pa-uLq" id="z3l-gM-bZo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="teh-Zg-JTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

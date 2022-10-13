@@ -82,6 +82,17 @@ class NewPlaceViewController: UITableViewController {
         dismiss(animated: true)
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "showMap" {
+            return
+        }
+        guard let mapVC = segue.destination as? MapViewController else { return }
+        
+        mapVC.place = currentPlace
+    }
+    
     // MARK: - Public methods
     
     func savePlace() {
@@ -175,7 +186,6 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
             present(imagePicker, animated: true)
         }
     }
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

@@ -76,7 +76,6 @@
 				F4D2702428C8D43B003EC1A6 /* Services */,
 				F44C0A7428C3A03500F34EFA /* ViewControllers */,
 				F44C0A7A28C512D400F34EFA /* Models */,
-				F44C0A7728C50AC500F34EFA /* Cells */,
 				F44C0A7128C39FCD00F34EFA /* App */,
 				F44C0A7228C39FE700F34EFA /* Storyboards */,
 				F44C0A7328C39FEF00F34EFA /* Resources */,
@@ -114,6 +113,7 @@
 		F44C0A7428C3A03500F34EFA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F44C0A7728C50AC500F34EFA /* Cells */,
 				F44C0A7528C3A05B00F34EFA /* MainViewController.swift */,
 				F4FCE24728C76AC900BFE72E /* NewPlaceViewController.swift */,
 				F4447B7E28D4EF1200CA5A00 /* RatingControl.swift */,
