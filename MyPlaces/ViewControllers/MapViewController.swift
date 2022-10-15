@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     
     // MARK:  - Public properties
     
-    var place: Place!
+    var place = Place()
     
     // MARK: - Private properties
     
