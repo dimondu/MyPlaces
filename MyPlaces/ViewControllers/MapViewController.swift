@@ -19,11 +19,12 @@ class MapViewController: UIViewController {
     // MARK:  - Public properties
     
     var place = Place()
-    let locationManager = CLLocationManager()
     
     // MARK: - Private properties
     
+    private let locationManager = CLLocationManager()
     private let annotationIdentifire = "annotationIdentifire"
+    private let regionInMeters = 10000.00
     
     // MARK: - Override methods
     
@@ -35,6 +36,15 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    
+    @IBAction func centerViewInUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location,
+                                            latitudinalMeters: regionInMeters,
+                                            longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
+    }
     
     @IBAction func closeVC() {
         dismiss(animated: true)
@@ -76,7 +86,12 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                self.showALert(
+                    title: "Location Services are Disabled",
+                    message: "To enable it go: Settings -> Privacy -> Location Services and turn On"
+                )
+            }
         }
     }
     
@@ -92,7 +107,12 @@ class MapViewController: UIViewController {
             mapView.showsUserLocation = true
             break
         case .denied:
-            // show alert controller
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                self.showALert(
+                    title: "Location Services are Disabled",
+                    message: "To enable it go: Settings -> Privacy -> Location Services and turn On"
+                )
+            }
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -105,12 +125,20 @@ class MapViewController: UIViewController {
             print("New case is available")
         }
     }
+    
+    private func showALert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate {
- 
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
         
@@ -128,7 +156,7 @@ extension MapViewController: MKMapViewDelegate {
             imageView.image = UIImage(data: imageData)
             annotationView?.rightCalloutAccessoryView = imageView
         }
-            
+        
         return annotationView
     }
     

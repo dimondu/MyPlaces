@@ -17,7 +17,6 @@ class Place: Object {
     @Persisted var date = Date()
     @Persisted var rating = 0.0
     
-    
     convenience init(name: String, location: String?, type: String?, imageData: Data?, rating: Double) {
         self.init()
         self.name = name
