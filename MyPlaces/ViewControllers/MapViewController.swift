@@ -9,6 +9,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol MapViewControllerDelegate  {
+    func gerAddress(_ address: String?)
+}
+
 
 class MapViewController: UIViewController {
     
@@ -17,10 +21,11 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapPinImage: UIImageView!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     // MARK:  - Public properties
     
+    var mapViewControllerDelegate: MapViewControllerDelegate?
     var place = Place()
     var incomeSegueIdentifire = ""
     
@@ -34,7 +39,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adressLabel.text = ""
+        addressLabel.text = ""
         mapView.delegate = self
         setupMapView()
         checkLocationServices()
@@ -47,6 +52,8 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
+        mapViewControllerDelegate?.gerAddress(addressLabel.text)
+        dismiss(animated: true)
     }
     
     @IBAction func closeVC() {
@@ -59,7 +66,7 @@ class MapViewController: UIViewController {
         if incomeSegueIdentifire == "showPlace" {
             setupPlacemark()
             mapPinImage.isHidden = true
-            adressLabel.isHidden = true
+            addressLabel.isHidden = true
             doneButton.isHidden = true
         }
     }
@@ -117,7 +124,7 @@ class MapViewController: UIViewController {
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
-            if incomeSegueIdentifire == "getAdress"{ showUserLocation() }
+            if incomeSegueIdentifire == "getAddress"{ showUserLocation() }
             break
         case .denied:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
@@ -209,14 +216,13 @@ extension MapViewController: MKMapViewDelegate {
             DispatchQueue.main.async {
                 
                 if streetName != nil && buildNumber != nil {
-                    self.adressLabel.text = "\(streetName!), \(buildNumber!)"
+                    self.addressLabel.text = "\(streetName!), \(buildNumber!)"
                 } else if streetName != nil {
-                    self.adressLabel.text = "\(streetName!)"
+                    self.addressLabel.text = "\(streetName!)"
                 } else {
-                    self.adressLabel.text = ""
+                    self.addressLabel.text = ""
                 }
             }
-            
         }
     }
 }

@@ -92,6 +92,7 @@ class NewPlaceViewController: UITableViewController {
         else { return }
         
         mapVC.incomeSegueIdentifire = identifire
+        mapVC.mapViewControllerDelegate = self
         
         if identifire == "showPlace" {
             mapVC.place.name = placeNameTF.text ?? ""
@@ -199,4 +200,15 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         
         dismiss(animated: true)
     }
+}
+
+// MARK: - MapViewControllerDelegate
+
+extension NewPlaceViewController: MapViewControllerDelegate {
+   
+    func gerAddress(_ address: String?) {
+        placeLocationTF.text = address
+    }
+    
+    
 }

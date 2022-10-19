@@ -248,7 +248,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Placeholder"/>
                                                     <connections>
-                                                        <segue destination="gsC-KZ-RaP" kind="presentation" identifier="getAdress" id="R0R-Zb-q60"/>
+                                                        <segue destination="gsC-KZ-RaP" kind="presentation" identifier="getAddress" id="R0R-Zb-q60"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -355,7 +355,7 @@
             <objects>
                 <viewController id="gsC-KZ-RaP" customClass="MapViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IxI-5j-3tv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rT5-pa-uLq">
@@ -376,7 +376,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="ccI-6r-7jY">
-                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <rect key="frame" x="187" y="399" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="dpj-jg-XSr"/>
                                     <constraint firstAttribute="height" constant="40" id="tdq-uP-kNh"/>
@@ -389,7 +389,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipY-FQ-hfg">
-                                <rect key="frame" x="172" y="774" width="70" height="48"/>
+                                <rect key="frame" x="172" y="750" width="70" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done">
@@ -400,7 +400,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9A-2g-dCO">
-                                <rect key="frame" x="344" y="696" width="30" height="30"/>
+                                <rect key="frame" x="344" y="672" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="gUU-dg-nA1"/>
                                     <constraint firstAttribute="height" constant="30" id="kTc-FL-TO9"/>
@@ -429,7 +429,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adressLabel" destination="eha-JV-PFA" id="5ZN-gf-VrB"/>
+                        <outlet property="addressLabel" destination="eha-JV-PFA" id="5ZN-gf-VrB"/>
                         <outlet property="doneButton" destination="ipY-FQ-hfg" id="VOQ-2D-dhk"/>
                         <outlet property="mapPinImage" destination="ccI-6r-7jY" id="2nh-P7-HOg"/>
                         <outlet property="mapView" destination="rT5-pa-uLq" id="z3l-gM-bZo"/>
@@ -483,7 +483,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="CJ7-6o-AM0"/>
+        <segue reference="R0R-Zb-q60"/>
         <segue reference="eBA-vx-Q9Q"/>
     </inferredMetricsTieBreakers>
     <resources>
